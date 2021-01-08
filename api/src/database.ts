@@ -1,13 +1,11 @@
 import mongoose from 'mongoose';
 
-import mongoDB_URL from './config/mongoDB_URL';
+import config from './config/config';
 
 export default class Database {
    static async connect() {
       try {
-         const databaseURL = mongoDB_URL;
-
-         return await mongoose.connect(databaseURL, {
+         return await mongoose.connect(config.mongoURL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false,

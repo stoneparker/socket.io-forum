@@ -1,13 +1,13 @@
 import Server from './server';
 import Database from './database';
-import ServerIO from './websocket';
+import config from './config/config';
 
 Database.connect();
 
 const server = new Server();
 server.httpServer();
 server.ioServer();
-server.init(3333);
+server.init(Number(config.port));
 
 // const serverio = new ServerIO(server.app);
 // serverio.ioServer();
