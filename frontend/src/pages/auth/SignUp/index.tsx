@@ -1,5 +1,7 @@
-import React, { FormEvent, useState, ChangeEvent } from 'react';
+import React, { FormEvent, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
+import api from '../../../services/api';
 import AuthLayout from '../../../components/AuthLayout';
 
 import { Content } from './styles';
@@ -10,7 +12,9 @@ const SignUp: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [email, setEmail] = useState('');
 
-  function handleSubmit(event: FormEvent) {
+  const history = useHistory();
+
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
     if (password !== confirmPassword) {
@@ -18,14 +22,24 @@ const SignUp: React.FC = () => {
       return false;
     }
 
-    const formData = {
-      username,
-      password,
-      confirmPassword,
-      email
-    };
+    if (username && password && email) {
+      const formData = {
+        username,
+        password,
+        confirmPassword,
+        email
+      }
 
-    console.log(formData);
+      try {
+        const response = await api.post('user', formData);
+        console.log(response.data);
+
+        history.push('/forum');
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 
   return (

@@ -37,6 +37,7 @@ export const Container = styled.div`
       font-size: 40px;
       margin-bottom: 50px;
       box-shadow: inset 0 -6px 0 rgba(35,209,153,.3);
+      text-align: center;
    }  
 
    @media (max-width: 1000px) {
@@ -49,11 +50,11 @@ export const Container = styled.div`
 
       main {
          width: 100%;
-         height: 100vh;
+         height: 95vh;
       }
 
       aside img {
-         width: 60%;
+         width: 90%;
       }
    }
 `;

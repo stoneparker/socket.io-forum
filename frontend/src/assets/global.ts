@@ -16,9 +16,13 @@ const GlobalStyle = createGlobalStyle`
 
    body {
       font: 14px 'Rubik', sans-serif;
-      background: #FFF;
+      background: #F7F7F7;
       color: #333;
       -webkit-font-smoothing: antialiased !important;
+   }
+
+   ul {
+      list-style: none;
    }
 `;
 
