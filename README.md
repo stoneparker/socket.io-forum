@@ -5,4 +5,3 @@
 - TypeScript
 - MongoDB
 - Socket.IO
-"# socket.io-forum" 
