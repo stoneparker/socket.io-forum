@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/socket.io-client@3/dist/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const socket = io('http://localhost:3333/', { 
+      withCredentials: false,
+      transports: ['websocket'],
+    });
+
+    console.log(socket);
+
+    // function joinRoom() {
+    //   socket.emit('join forum', { nameRoom: 'Como foi sua primeira vez?' });
+    // };
+
+    // function leaveRoom() {
+    //   socket.emit('leave forum', {nameRoom: 'Como foi sua primeira vez?'})
+    // };
+
+    // async function sendMessage() {
+    //   // const forum_id = 1;
+    //   await axios.post('https://little-bird-api.herokuapp.com/forum/2/comment', {
+    //     comment_content: 'Mensagem: ' + new Date()
+    //   }, {
+    //     headers: {
+    //       Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiY2FybG9zYm9hdmlkYUBnbS5jb20iLCJpYXQiOjE2MDI1OTU4MjN9.OqBlsENUp984ySjKMSgprTQqh7Cr8HZQ2R8v8HvNaYw'
+    //     }
+    //   });
+    // };
+
+    // socket.on('new message', message => {
+    //   console.log(message.comment_content)
+    // });
+
+  </script>
+</head>
+<body>
+  <button class="button" onclick="joinRoom()">
+    Join
+  </button>
+  <button class="button" onclick="leaveRoom()">
+    Leave
+  </button>
+  <button class="button" onclick="sendMessage()">
+    Send Message
+  </button>
+</body>
+</html>
