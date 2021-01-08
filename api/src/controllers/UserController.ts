@@ -1,4 +1,6 @@
 import { Request, Response } from 'express';
+
+import generateTokenJWT from '../utils/generateToken';
 import User from '../models/User';
 
 export default class UserController {
@@ -15,10 +17,12 @@ export default class UserController {
             email,
             password
          });
-         
-         return response.json(user);
+
+         const token = generateTokenJWT(String(user._id));
+
+         return response.json(token);
       } catch (error) {
-         return response.json({ message: 'Erro no cadastro de usuário' });
+         return response.json({ message: `Erro no cadastro de usuário: ${error}` });
       }
    }
 
