@@ -1,5 +1,5 @@
 # Fórum - Socket.IO
-## 🚀 Tecnologias
+## Tecnologias
 - ReactJS
 - Node.js
 - TypeScript
