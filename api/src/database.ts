@@ -1,11 +1,13 @@
 import mongoose from 'mongoose';
 
+import mongoDB_URL from './config/mongoDB_URL';
+
 export default class Database {
    static async connect() {
       try {
-         const mongoURL = 'mongodb+srv://stoneparker:airotiv098@cluster0.z4mup.mongodb.net/Tests?retryWrites=true&w=majority';
+         const databaseURL = mongoDB_URL;
 
-         return await mongoose.connect(mongoURL, {
+         return await mongoose.connect(databaseURL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false,
