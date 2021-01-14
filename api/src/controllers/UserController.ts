@@ -31,4 +31,16 @@ export default class UserController {
 
       return response.json(users);
    }
+
+   async login(request: Request, response: Response) {
+      console.log('oi');
+      const user = await User.findOne({
+         $and: [
+            { email: request.body.email },
+            { password: request.body.password }
+         ]
+      });
+
+      return response.json(user);
+   }
 }

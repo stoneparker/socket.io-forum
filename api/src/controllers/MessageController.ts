@@ -5,34 +5,29 @@ import User from '../models/User';
 // import connectIOn from '../websocket';
 
 export default class MessageController {
-   async store(request: Request, response: Response) {
+   async store(data: string) {
       try {
-         const { content } = request.body;
-         const user_id = request.header('Authorization');
+      //    const { content } = request.body;
+      //    const user_id = request.header('Authorization');
 
-         const user = await User.findById(user_id);
+      //    const user = await User.findById(user_id);
 
          const message = await Message.create({
-            content,
+            content: data,
             datetime: new Date(),
-            user: user_id,
+            user: '5ff8aafc13f94330bc719987',
          })
 
-         return response.json(message);
+         return true;
 
       } catch (error) {
-         return response.json({ message: 'Erro no envio de mensagem' });
+         return false;
       }
    }
 
-   async index(request: Request, response: Response) {
+   async index() {
       const messages = await Message.find();
 
-      return response.json(messages);
-   }
-
-   async io(request: Request, response: Response) {
-      // connectIOn();
-      return response.json('tentando aqui');
+      return messages;
    }
 }
